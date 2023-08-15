@@ -229,17 +229,15 @@ module NfePaulistana
         xml.InscricaoMunicipalTomador data[:im_tomador] unless data[:im_tomador].blank?
         xml.InscricaoEstadualTomador data[:ie_tomador] unless data[:ie_tomador].blank?
         xml.RazaoSocialTomador data[:razao_tomador] unless data[:razao_tomador].blank?
-        unless data[:tp_logradouro].blank? && data[:logradouro].blank? && data[:nr_endereco] && data[:compl_endereco]
-          xml.EnderecoTomador do
-            xml.TipoLogradouro data[:tp_logradouro]
-            xml.Logradouro data[:logradouro]
-            xml.NumeroEndereco data[:nr_endereco]
-            xml.ComplementoEndereco data[:compl_endereco]
-            xml.Bairro data[:bairro] unless data[:bairro].blank?
-            xml.Cidade data[:cidade] unless data[:cidade].blank?
-            xml.UF data[:uf] unless data[:uf]
-            xml.CEP data[:cep] unless data[:cep]
-          end
+        xml.EnderecoTomador do
+          xml.TipoLogradouro data[:tp_logradouro] unless data[:tp_logradouro].blank?
+          xml.Logradouro data[:logradouro] unless data[:logradouro].blank?
+          xml.NumeroEndereco data[:nr_endereco] unless data[:nr_endereco].blank?
+          xml.ComplementoEndereco data[:compl_endereco] unless data[:compl_endereco].blank?
+          xml.Bairro data[:bairro] unless data[:bairro].blank?
+          xml.Cidade data[:cidade] unless data[:cidade].blank?
+          xml.UF data[:uf] unless data[:uf]
+          xml.CEP data[:cep] unless data[:cep]
         end
         xml.EmailTomador data[:email_tomador]
         #         unless (data[:cpf_intermediario].blank? and data[:cnpj_intermediario].blank?)
