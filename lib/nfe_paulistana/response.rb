@@ -24,7 +24,7 @@ module NfePaulistana
 
     def retorno
       Nori.new(convert_tags_to: lambda { |tag|
-                                  tag.snakecase.to_sym
+                                  tag.underscore.to_sym
                                 }).parse(xml)["retorno_#{RETURN_ROOT[@options[:method]] || @options[:method]}".to_sym]
     end
 
